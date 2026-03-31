@@ -1,0 +1,40 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Mock API ETL",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://jsonplaceholder.typicode.com"
+    }
+  ],
+  "paths": {
+    "/users": {
+      "get": {
+        "summary": "Get Users",
+        "operationId": "getUsers",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": { "type": "integer" },
+                      "name": { "type": "string" },
+                      "email": { "type": "string" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
