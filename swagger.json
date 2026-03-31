@@ -20,15 +20,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "id": { "type": "integer" },
-                      "name": { "type": "string" },
-                      "email": { "type": "string" }
-                    }
-                  }
+                  "$ref": "#/components/schemas/UsersResponse"
                 }
               }
             }
@@ -46,16 +38,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "userId": { "type": "integer" },
-                      "id": { "type": "integer" },
-                      "title": { "type": "string" },
-                      "body": { "type": "string" }
-                    }
-                  }
+                  "$ref": "#/components/schemas/PostsResponse"
                 }
               }
             }
@@ -73,21 +56,75 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "postId": { "type": "integer" },
-                      "id": { "type": "integer" },
-                      "name": { "type": "string" },
-                      "email": { "type": "string" },
-                      "body": { "type": "string" }
-                    }
-                  }
+                  "$ref": "#/components/schemas/CommentsResponse"
                 }
               }
             }
           }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "UsersResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/User"
+            }
+          }
+        }
+      },
+      "PostsResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Post"
+            }
+          }
+        }
+      },
+      "CommentsResponse": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Comment"
+            }
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "integer" },
+          "name": { "type": "string" },
+          "email": { "type": "string" }
+        }
+      },
+      "Post": {
+        "type": "object",
+        "properties": {
+          "userId": { "type": "integer" },
+          "id": { "type": "integer" },
+          "title": { "type": "string" },
+          "body": { "type": "string" }
+        }
+      },
+      "Comment": {
+        "type": "object",
+        "properties": {
+          "postId": { "type": "integer" },
+          "id": { "type": "integer" },
+          "name": { "type": "string" },
+          "email": { "type": "string" },
+          "body": { "type": "string" }
         }
       }
     }
