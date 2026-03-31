@@ -16,7 +16,7 @@
         "operationId": "getUsers",
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "Users list",
             "content": {
               "application/json": {
                 "schema": {
@@ -27,6 +27,61 @@
                       "id": { "type": "integer" },
                       "name": { "type": "string" },
                       "email": { "type": "string" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/posts": {
+      "get": {
+        "summary": "Get Posts",
+        "operationId": "getPosts",
+        "responses": {
+          "200": {
+            "description": "Posts list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "userId": { "type": "integer" },
+                      "id": { "type": "integer" },
+                      "title": { "type": "string" },
+                      "body": { "type": "string" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/comments": {
+      "get": {
+        "summary": "Get Comments",
+        "operationId": "getComments",
+        "responses": {
+          "200": {
+            "description": "Comments list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "postId": { "type": "integer" },
+                      "id": { "type": "integer" },
+                      "name": { "type": "string" },
+                      "email": { "type": "string" },
+                      "body": { "type": "string" }
                     }
                   }
                 }
