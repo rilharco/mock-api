@@ -20,7 +20,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UsersResponse"
+                  "$ref": "#/components/schemas/UserList"
                 }
               }
             }
@@ -38,7 +38,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PostsResponse"
+                  "$ref": "#/components/schemas/PostList"
                 }
               }
             }
@@ -56,7 +56,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CommentsResponse"
+                  "$ref": "#/components/schemas/CommentList"
                 }
               }
             }
@@ -67,41 +67,27 @@
   },
   "components": {
     "schemas": {
-      "UsersResponse": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/User"
-            }
-          }
+      "UserList": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/User"
         }
       },
-      "PostsResponse": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Post"
-            }
-          }
+      "PostList": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Post"
         }
       },
-      "CommentsResponse": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Comment"
-            }
-          }
+      "CommentList": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Comment"
         }
       },
       "User": {
         "type": "object",
+        "required": ["id", "name", "email"],
         "properties": {
           "id": { "type": "integer" },
           "name": { "type": "string" },
@@ -110,6 +96,7 @@
       },
       "Post": {
         "type": "object",
+        "required": ["id", "userId", "title"],
         "properties": {
           "userId": { "type": "integer" },
           "id": { "type": "integer" },
@@ -119,6 +106,7 @@
       },
       "Comment": {
         "type": "object",
+        "required": ["id", "postId", "email"],
         "properties": {
           "postId": { "type": "integer" },
           "id": { "type": "integer" },
